@@ -1,11 +1,16 @@
-import { Image, ImageProps } from "@rneui/base";
+import { DimensionValue, Image } from "react-native";
 
-const Logo = ({ source, ...props }: ImageProps) => {
+const Logo = ({
+  width,
+  height,
+}: {
+  width?: DimensionValue;
+  height?: DimensionValue;
+}) => {
   return (
     <Image
-      style={{ width: 324.5, height: "auto" }}
-      source={source || require("../../assets/logo/Logo.svg")}
-      {...props}
+      style={{ width: width || 324.5, height: height || 167.6 }}
+      source={require("../../assets/logo/Logo.png")}
     />
   );
 };

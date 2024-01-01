@@ -1,11 +1,13 @@
 import { Text } from "@rneui/base";
-import { Container } from "../../components";
+import { Container, Logo } from "../../components";
 import { BackButton } from "../../section/login";
 
 const Login = () => {
   return (
     <Container>
       <BackButton />
+
+      <Logo />
     </Container>
   );
 };
