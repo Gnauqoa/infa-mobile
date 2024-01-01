@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import theme from "../theme";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -43,10 +44,9 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-
   return (
     <SafeAreaProvider>
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: "modal" }} />
