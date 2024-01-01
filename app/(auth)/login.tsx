@@ -1,11 +1,12 @@
 import { Text } from "@rneui/base";
-import { View } from "react-native";
+import { Container } from "../../components";
+import { BackButton } from "../../section/login";
 
 const Login = () => {
   return (
-    <View>
-      <Text>asdasd</Text>
-    </View>
+    <Container>
+      <BackButton />
+    </Container>
   );
 };
 
