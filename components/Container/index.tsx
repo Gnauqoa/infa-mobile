@@ -8,6 +8,7 @@ const Container = styled.View({
   paddingTop: 24,
   paddingBottom: 48,
   paddingHorizontal: 24,
+  backgroundColor: "#fff",
 });
 
 export default Container;
