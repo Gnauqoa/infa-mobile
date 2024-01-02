@@ -62,7 +62,7 @@ const LoginForm = () => {
           }
         />
       </View>
-      <Button onPress={() => replace("/home")}>Đăng nhập</Button>
+      <Button onPress={() => replace("/product")}>Đăng nhập</Button>
     </View>
   );
 };
