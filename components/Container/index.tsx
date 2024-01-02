@@ -11,12 +11,15 @@ const ViewStyled = styled.View({
   paddingTop: 48,
   paddingBottom: 48,
   paddingHorizontal: 24,
-  backgroundColor: "#fff",
   alignItems: "centers",
 });
 const Container = ({ children, ...props }: ViewProps) => {
   return (
-    <ScrollView>
+    <ScrollView
+      style={{
+        backgroundColor: "#fff",
+      }}
+    >
       <ViewStyled {...props}>{children}</ViewStyled>
     </ScrollView>
   );
