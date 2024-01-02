@@ -1,14 +1,20 @@
-import { Image, SafeAreaView, View } from "react-native";
-import { AppBar } from "../section/home";
+import { Image, SafeAreaView, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import styled from "styled-components/native";
 import { FontAwesome } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-const Home = () => {
-  const [amount, setamount] = useState(0);
-  const productImage = require("../assets/images/product-image.png");
+import { useLocalSearchParams, useRouter } from "expo-router";
+
+const Product = () => {
+  const go = useLocalSearchParams();
+  const [amount, setAmount] = useState(0);
+  const productImage = require("../../assets/images/product-image.png");
+  const { replace } = useRouter();
+  useEffect(() => {
+    console.log(go);
+  }, [go]);
   return (
     <SafeAreaView
       style={{
@@ -24,13 +30,12 @@ const Home = () => {
             flex: 1,
           }}
         >
-          <Touchable onPress={() => {}}>
-            <StyledIconBack
-              name="arrowleft"
-              size={26}
-              color={"black"}
-            ></StyledIconBack>
-          </Touchable>
+          <TouchableOpacity
+            style={{ position: "absolute", top: 20, left: 20, zIndex: 30 }}
+            onPress={() => replace("/home")}
+          >
+            <AntDesign name="arrowleft" size={26} color={"black"} />
+          </TouchableOpacity>
           <Image
             style={{
               height: 500,
@@ -71,7 +76,7 @@ const Home = () => {
                 flexDirection: "row",
               }}
             >
-              <AntDesign name="star" size={24} color="black" color="#01b764" />
+              <AntDesign name="star" size={24} color="#01b764" />
               <RattingText>5.0 (10 đánh giá)</RattingText>
             </View>
           </InfoContainer>
@@ -88,7 +93,7 @@ const Home = () => {
             <AmountContainerInput>
               <Touchable>
                 <AntDesign
-                  onPress={() => setamount(amount + 1)}
+                  onPress={() => setAmount(amount + 1)}
                   name="plus"
                   size={20}
                   color="#01b764"
@@ -99,7 +104,7 @@ const Home = () => {
                 <Feather
                   onPress={() => {
                     if (amount > 0) {
-                      setamount(amount - 1);
+                      setAmount(amount - 1);
                     }
                   }}
                   name="minus"
@@ -123,11 +128,7 @@ const Home = () => {
   );
 };
 const Container = styled.ScrollView``;
-const StyledIconBack = styled(AntDesign).attrs((props) => ({}))`
-  position: absolute;
-  top: 20px;
-  left: 20px;
-`;
+
 const Touchable = styled.TouchableOpacity`
   z-index: 10;
   border-radius: 10px;
@@ -220,4 +221,4 @@ const PurchaseTitle = styled.Text`
   font-weight: 700;
   color: #fff;
 `;
-export default Home;
+export default Product;

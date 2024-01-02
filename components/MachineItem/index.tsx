@@ -1,8 +1,16 @@
 import { AntDesign } from "@expo/vector-icons";
-import { Image, ImageSourcePropType, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import useColors from "../../hooks/useColors";
+import { useRouter } from "expo-router";
 
 const MachineItem = ({
+  id,
   source,
   title,
   star,
@@ -10,6 +18,7 @@ const MachineItem = ({
   location,
   price,
 }: {
+  id: number | string;
   source: ImageSourcePropType;
   title: string;
   star: number;
@@ -17,10 +26,13 @@ const MachineItem = ({
   location: string;
   price: number;
 }) => {
+  const { replace, push } = useRouter();
   const color = useColors();
   return (
     <View style={{ flexDirection: "column", gap: 16 }}>
-      <Image source={source} style={{ width: 240, height: 240 }} />
+      <TouchableOpacity onPress={() => replace(`/(product)/${id}`)}>
+        <Image source={source} style={{ width: 240, height: 240 }} />
+      </TouchableOpacity>
       <View style={{ flexDirection: "column", gap: 12 }}>
         <Text style={{ fontSize: 24, fontWeight: "700", color: "#212121" }}>
           {title}
