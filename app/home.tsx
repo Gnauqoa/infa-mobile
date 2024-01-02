@@ -1,9 +1,15 @@
-import { View } from "react-native";
-import { AppBar, Carousel, SearchBar, Services } from "../section/home";
+import { ScrollView, View } from "react-native";
+import {
+  AppBar,
+  Carousel,
+  Machines,
+  SearchBar,
+  Services,
+} from "../section/home";
 
 const Home = () => {
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flex: 1,
@@ -18,7 +24,8 @@ const Home = () => {
       <SearchBar />
       <Carousel />
       <Services />
-    </View>
+      <Machines />
+    </ScrollView>
   );
 };
 
