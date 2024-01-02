@@ -1,4 +1,5 @@
 import { AntDesign } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import {
   FlatList,
   Image,
@@ -13,6 +14,7 @@ const ServiceList: {
   source: ImageSourcePropType;
   backgroundColor: string;
   width: number;
+  href?: string;
   height: number;
 }[] = [
   {
@@ -35,6 +37,7 @@ const ServiceList: {
     backgroundColor: "#B79F4A",
     width: 29,
     height: 19,
+    href: "/(product)/news",
   },
   {
     title: "Đất thuê",
@@ -73,7 +76,9 @@ const Service = ({
   width,
   index,
   height,
+  href,
 }: {
+  href?: string;
   index: number;
   title: string;
   source: ImageSourcePropType;
@@ -81,6 +86,7 @@ const Service = ({
   width: number;
   height: number;
 }) => {
+  const { push } = useRouter();
   return (
     <TouchableOpacity
       style={{
@@ -92,6 +98,9 @@ const Service = ({
         marginHorizontal: 16,
         marginLeft: index === 0 ? 0 : 16,
         alignItems: "center",
+      }}
+      onPress={() => {
+        if (href) push(href);
       }}
     >
       <Image style={{ width, height }} source={source} />
