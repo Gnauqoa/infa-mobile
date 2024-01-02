@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { InputType } from "../../atomic/Input";
 import { useState } from "react";
 import Badge from "./Badge";
+import { Link, useRouter } from "expo-router";
 
 type FormValue = {
   account: string;
@@ -19,6 +20,7 @@ const LoginForm = () => {
     password: "",
     remember: false,
   });
+  const { replace } = useRouter();
   return (
     <View
       style={{
@@ -60,7 +62,7 @@ const LoginForm = () => {
           }
         />
       </View>
-      <Button>Đăng nhập</Button>
+      <Button onPress={() => replace("/home")}>Đăng nhập</Button>
     </View>
   );
 };

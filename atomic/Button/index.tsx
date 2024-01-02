@@ -1,13 +1,21 @@
 import { ReactNode } from "react";
-import { Text, TextProps, TouchableOpacity, ViewProps } from "react-native";
+import {
+  Text,
+  TextProps,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ViewProps,
+} from "react-native";
 import useColors from "../../hooks/useColors";
 
 const Button = ({
   containerProps,
   textProps,
   children,
+  onPress,
 }: {
-  containerProps?: ViewProps;
+  onPress?: TouchableOpacityProps["onPress"];
+  containerProps?: TouchableOpacityProps;
   textProps?: TextProps;
   children: ReactNode;
 }) => {
@@ -24,6 +32,7 @@ const Button = ({
         justifyContent: "center",
         alignItems: "center",
       }}
+      onPress={onPress}
       {...containerProps}
     >
       <Text
