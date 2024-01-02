@@ -13,7 +13,7 @@ import {
   View,
 } from "react-native";
 import { MapLayer } from "expo-leaflet";
-import { mapMarkers, mapShapes } from "../constants/mockData";
+import { getPlantData, mapMarkers, mapShapes } from "../constants/mockData";
 
 const mapLayers: Array<MapLayer> = [
   {
@@ -110,9 +110,6 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>expo-leaflet</Text>
-      </View>
       <View style={{ flex: 1, position: "relative" }}>
         <ExpoLeaflet
           loadingIndicator={() => <ActivityIndicator />}
@@ -125,8 +122,11 @@ export default function App() {
           onMessage={(message) => {
             switch (message.tag) {
               case "onMapMarkerClicked":
+                console.log(message.mapMarkerId.toString());
+                const data = getPlantData(message.mapMarkerId.toString());
                 Alert.alert(
-                  `Map Marker Touched, ID: ${message.mapMarkerId || "unknown"}`
+                  `Tên ${data?.title}`,
+                  `Vị trí: ${data?.position.lat} , ${data?.position.lng} \n Diện tích: ${data?.area}`
                 );
                 break;
               case "onMapClicked":
@@ -134,6 +134,7 @@ export default function App() {
                 //   `Map Touched at:`,
                 //   `${message.location.lat}, ${message.location.lng}`,
                 // )
+                console.log(message);
                 console.log(
                   `{ lat: ${message.location.lat}, lng: ${message.location.lng} },`
                 );
