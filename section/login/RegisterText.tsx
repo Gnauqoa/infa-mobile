@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 const RegisterText = () => {
   return (
@@ -10,17 +10,20 @@ const RegisterText = () => {
         gap: 8,
         alignItems: "center",
         width: "100%",
+        paddingTop: 24,
         justifyContent: "center",
       }}
     >
       <Text style={{ fontSize: 14, fontWeight: "400", color: "#9E9E9E" }}>
         Bạn chưa có tài khoản
       </Text>
-      <Link href={"/(auth)/register"}>
-        <Text style={{ fontSize: 14, fontWeight: "600", color: "#01B763" }}>
-          Đăng ký
-        </Text>
-      </Link>
+      <TouchableOpacity>
+        <Link href={"/(auth)/register"}>
+          <Text style={{ fontSize: 14, fontWeight: "600", color: "#01B763" }}>
+            Đăng ký
+          </Text>
+        </Link>
+      </TouchableOpacity>
     </View>
   );
 };

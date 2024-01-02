@@ -1,5 +1,11 @@
 import { Container, Logo } from "../../components";
-import { BackButton, Badge, LoginForm, LoginMethod } from "../../section/login";
+import {
+  BackButton,
+  Badge,
+  LoginForm,
+  LoginMethod,
+  RegisterText,
+} from "../../section/login";
 
 const Login = () => {
   return (
@@ -9,6 +15,7 @@ const Login = () => {
       <LoginForm />
       <Badge />
       <LoginMethod />
+      <RegisterText />
     </Container>
   );
 };
