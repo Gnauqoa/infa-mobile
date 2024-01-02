@@ -9,6 +9,7 @@ const Container = styled.View({
   paddingBottom: 48,
   paddingHorizontal: 24,
   backgroundColor: "#fff",
+  alignItems: "centers",
 });
 
 export default Container;
