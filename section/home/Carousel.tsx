@@ -9,35 +9,33 @@ const Banners = [
 
 const Carousel = () => {
   return (
-    <FlatList
-      horizontal={true}
-      style={{
-        height: 170,
-        flex: 1,
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        rowGap: 24,
-        marginHorizontal: 24,
-        marginTop: 40,
-      }}
-      data={Banners}
-      renderItem={({ item, index }) => {
-        if (index === Banners.length - 1) return <View style={{ width: 48 }} />;
-        return (
-          <Image
-            source={item}
-            style={{
-              height: 170,
-              width: 330,
-              marginHorizontal: 24,
-              borderRadius: 24,
-            }}
-          />
-        );
-      }}
-      keyExtractor={(item, index) => index.toString()}
-    />
+    <View>
+      <FlatList
+        horizontal={true}
+        style={{
+          flexDirection: "row",
+          marginHorizontal: 24,
+          marginTop: 40,
+        }}
+        data={Banners}
+        renderItem={({ item, index }) => {
+          if (index === Banners.length - 1)
+            return <View style={{ width: 48 }} />;
+          return (
+            <Image
+              source={item}
+              style={{
+                height: 170,
+                width: 330,
+                marginHorizontal: 24,
+                borderRadius: 24,
+              }}
+            />
+          );
+        }}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
   );
 };
 
