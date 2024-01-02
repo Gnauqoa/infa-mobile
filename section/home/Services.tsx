@@ -45,6 +45,7 @@ const ServiceList: {
     backgroundColor: "#93423B",
     width: 29,
     height: 19,
+    href: "/map",
   },
   {
     title: "Xưởng thuê",

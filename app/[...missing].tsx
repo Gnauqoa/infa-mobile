@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function NotFoundScreen() {
-  const { replace } = useRouter();
-  useEffect(() => {
-    replace("/(auth)/login");
-  }, []);
+  // const { replace } = useRouter();
+  // useEffect(() => {
+  //   replace("/(auth)/login");
+  // }, []);
   return (
     <>
       <Stack.Screen options={{ title: "Oops!" }} />
       <View style={styles.container}>
         <Text style={styles.title}>This screen doesn't exist.</Text>
 
-        <Link href="/" style={styles.link}>
+        <Link href="/(auth)/login" style={styles.link}>
           <Text style={styles.linkText}>Go to home screen!</Text>
         </Link>
       </View>
