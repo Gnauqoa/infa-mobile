@@ -1,6 +1,6 @@
 import { Text } from "@rneui/base";
 import { View } from "react-native";
-import { CheckBox, Input } from "../../atomic";
+import { Button, CheckBox, Input } from "../../atomic";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { InputType } from "../../atomic/Input";
@@ -59,6 +59,9 @@ const LoginForm = () => {
           }
         />
       </View>
+      {/* <View style={{ width: "100%", display: "flex", flexDirection: "column" }}> */}
+      <Button>Đăng nhập</Button>
+      {/* </View> */}
     </View>
   );
 };
