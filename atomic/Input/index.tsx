@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { TouchableOpacity, ViewProps } from "react-native";
 import { TextInput, TextInputProps, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
@@ -14,30 +14,40 @@ const Input = ({
   containerProps,
   startIcon,
   endIcon,
-  type,
+  type = InputType.text,
 }: {
-  endIcon: ReactNode;
-  startIcon: ReactNode;
-  containerProps: ViewProps;
-  inputProps: TextInputProps;
-  type: InputType;
+  endIcon?: ReactNode;
+  startIcon?: ReactNode;
+  containerProps?: ViewProps;
+  inputProps?: TextInputProps;
+  type?: InputType;
 }) => {
-  const { toggle: show, onToggle } = useToggle();
+  const { toggle: show, onToggle } = useToggle(true);
+
   return (
     <View
       style={{
         borderRadius: 16,
         backgroundColor: "#FAFAFA",
-        gap: 3,
-        paddingVertical: 5,
-        paddingHorizontal: 5,
+        gap: 12,
+        display: "flex",
+        paddingVertical: 20,
+        flexDirection: "row",
+        width: "100%",
+        paddingHorizontal: 20,
       }}
       {...containerProps}
     >
       {startIcon}
       <TextInput
-        style={{ fontSize: 14, fontWeight: "400", color: "#fff" }}
+        style={{
+          fontSize: 14,
+          fontWeight: "400",
+          color: "#000",
+          flex: 1,
+        }}
         placeholderTextColor="#9E9E9E"
+        secureTextEntry={type === InputType.password && show}
         {...inputProps}
       />
       {type === InputType.password && (
