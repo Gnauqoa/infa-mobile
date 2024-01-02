@@ -11,7 +11,6 @@ const ViewStyled = styled.View({
   backgroundColor: "#fff",
   paddingBottom: 48,
   paddingHorizontal: 24,
-  alignItems: "center",
 });
 const Container = ({
   children,

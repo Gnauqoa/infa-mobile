@@ -12,7 +12,6 @@ const AuthLayout = () => {
       }}
       initialRouteName="login" // Set the default screen to "login"
     >
-      <Tabs.Screen name="index" />
       <Tabs.Screen name="login" />
     </Tabs>
   );

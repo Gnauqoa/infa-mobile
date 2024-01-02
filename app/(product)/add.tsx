@@ -1,9 +1,12 @@
-import { View } from "react-native";
+import { Container } from "../../components";
+import { Headers } from "../../section/addNews";
 
 const AddProduct = () => {
-  return(
-    <View></View>
-  )
+  return (
+    <Container scroll={true}>
+      <Headers />
+    </Container>
+  );
 };
 
 export default AddProduct;
