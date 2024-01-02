@@ -5,12 +5,13 @@ import { MachineItem } from "../../components";
 export const MachineList = [
   {
     id: 1,
-    title: "Máy cày",
+    title: "Máy xới",
     star: 4.8,
     hired: 10,
     location: "Tiềng Giang",
     price: 7045000,
     source: require("../../assets/images/machine1.png"),
+    description: "Siêu phẩm máy xới",
   },
   {
     id: 2,
@@ -20,10 +21,16 @@ export const MachineList = [
     location: "Sóc Trăng",
     price: 405000,
     source: require("../../assets/images/machine2.png"),
+    description: "Siêu phẩm máy cày",
   },
 ];
+
+export const getMachine = (id: number | string) => {
+  return MachineList.find((item) => item.id === Number(id));
+};
 const Machines = () => {
   const color = useColors();
+
   return (
     <View
       style={{

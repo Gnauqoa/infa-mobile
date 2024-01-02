@@ -6,15 +6,14 @@ import { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
+import { getMachine } from "../../section/home/Machines";
 
 const Product = () => {
-  const go = useLocalSearchParams();
+  const { productId } = useLocalSearchParams();
+  const product = getMachine(productId.toString());
   const [amount, setAmount] = useState(0);
-  const productImage = require("../../assets/images/product-image.png");
   const { replace } = useRouter();
-  useEffect(() => {
-    console.log(go);
-  }, [go]);
+
   return (
     <SafeAreaView
       style={{
@@ -41,7 +40,7 @@ const Product = () => {
               height: 500,
               width: 500,
             }}
-            source={productImage}
+            source={product?.source}
           />
         </View>
         <View
@@ -50,7 +49,7 @@ const Product = () => {
           }}
         >
           <ProductContainer>
-            <ProductTitle>Cánh tay Robot</ProductTitle>
+            <ProductTitle>{product?.title}</ProductTitle>
             <IconContainer>
               <Touchable>
                 <AntDesign
@@ -69,7 +68,7 @@ const Product = () => {
           </ProductContainer>
           <InfoContainer>
             <ButtonSalled>
-              <SaleText>20 Đã bán</SaleText>
+              <SaleText>{product?.hired} Đã bán</SaleText>
             </ButtonSalled>
             <View
               style={{
@@ -82,15 +81,11 @@ const Product = () => {
           </InfoContainer>
           <ContentContainer>
             <ContentTitle>Mô tả</ContentTitle>
-            <ContentText>
-              Những cánh tay robot được lập trình và sử dụng để thực hiện các
-              nhiệm vụ cụ thể. Nó sẽ phải tuân thủ các nguyên tắc cử động giống
-              như cánh tay con người. Các khớp tay
-            </ContentText>
+            <ContentText>{product?.description}</ContentText>
           </ContentContainer>
           <AmountContainer>
             <ContentTitle>Số lượng</ContentTitle>
-            <AmountContainerInput>
+            <AmountContainerInput style={{ marginLeft: "auto" }}>
               <Touchable>
                 <AntDesign
                   onPress={() => setAmount(amount + 1)}
@@ -194,7 +189,6 @@ const AmountContainer = styled.View`
 `;
 const AmountContainerInput = styled.View`
   padding-horizontal: 20px;
-  margin-right: 20px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
