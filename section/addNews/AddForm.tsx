@@ -45,7 +45,27 @@ const AddForm = () => {
           onChangeText: (value) => handleInputChange("description", value),
         }}
       />
+
+      <View
+        style={{
+          paddingHorizontal: 24,
+          paddingTop: 8,
+          paddingBottom: 12,
+          backgroundColor: "#E0FFD8",
+          borderWidth: 1,
+          borderColor: "#000",
+          borderRadius: 12,
+          marginTop: 16,
+        }}
+      >
+        <Text style={{ fontWeight: "400", fontSize: 20, color: "#000" }}>
+          Mẹo: Thông tin tài khoản đầy đủ sẽ giúp bạn nhận được tin tưởng từ
+          người bán hơn đấy
+        </Text>
+      </View>
+      
       <Button
+        containerProps={{ style: { marginTop: 40 } }}
         onPress={() => {
           setItems((prev) => [
             {

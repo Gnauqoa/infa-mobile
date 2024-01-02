@@ -20,6 +20,8 @@ const Button = ({
   children: ReactNode;
 }) => {
   const color = useColors();
+  const containerStyle = containerProps?.style;
+  delete containerProps?.style;
   return (
     <TouchableOpacity
       style={{
@@ -29,8 +31,9 @@ const Button = ({
         borderRadius: 900,
         width: "100%",
         backgroundColor: color.primary,
-        justifyContent: "center",
+        justifyContent: "center", 
         alignItems: "center",
+        ...containerStyle,
       }}
       onPress={onPress}
       {...containerProps}
