@@ -7,7 +7,7 @@ const AppBar = () => {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        width: "100%",
+
         paddingHorizontal: 20,
         marginHorizontal: 24,
         paddingVertical: 16,
