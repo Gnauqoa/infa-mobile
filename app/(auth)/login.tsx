@@ -1,7 +1,6 @@
 import { View } from "react-native";
 import { Container, Logo } from "../../components";
 import {
-  BackButton,
   Badge,
   LoginForm,
   LoginMethod,
@@ -11,7 +10,6 @@ import {
 const Login = () => {
   return (
     <Container>
-      <BackButton />
       <View style={{ width: "100%", alignItems: "center" }}>
         <Logo />
       </View>
