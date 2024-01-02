@@ -63,13 +63,13 @@ const AddForm = () => {
           người bán hơn đấy
         </Text>
       </View>
-      
+
       <Button
         containerProps={{ style: { marginTop: 40 } }}
         onPress={() => {
           setItems((prev) => [
             {
-              id: prev[prev.length - 1].id + 1,
+              id: prev[0].id + 1,
               title: form.title,
               description: form.description,
               avatar: require("../../assets/images/avatar.png"),
