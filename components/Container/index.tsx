@@ -5,7 +5,7 @@ const Container = styled.View({
   flex: 1,
   width: "100%",
   height: "100%",
-  paddingTop: 24,
+  paddingTop: 48,
   paddingBottom: 48,
   paddingHorizontal: 24,
   backgroundColor: "#fff",
