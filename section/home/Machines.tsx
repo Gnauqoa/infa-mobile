@@ -1,5 +1,4 @@
-import { AntDesign } from "@expo/vector-icons";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import useColors from "../../hooks/useColors";
 import { MachineItem } from "../../components";
 

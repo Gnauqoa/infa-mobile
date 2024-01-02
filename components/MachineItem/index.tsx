@@ -25,7 +25,7 @@ const MachineItem = ({
         <Text style={{ fontSize: 24, fontWeight: "700", color: "#212121" }}>
           {title}
         </Text>
-        <View style={{ flexDirection: "row", gap: 12 }}>
+        <View style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
           <AntDesign name="star" size={24} color={color.primary} />
           <Text style={{ fontSize: 16, fontWeight: "500", color: "#616161" }}>
             {star}
@@ -37,6 +37,7 @@ const MachineItem = ({
               borderWidth: 1,
               borderStyle: "solid",
               borderColor: color.primary,
+              borderRadius: 12,
             }}
           >
             <Text
