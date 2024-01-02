@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { ScrollView, ViewProps } from "react-native";
 import styled from "styled-components/native";
 
@@ -9,19 +8,26 @@ const ViewStyled = styled.View({
   height: "100%",
   minHeight: "100%",
   paddingTop: 48,
+  backgroundColor: "#fff",
   paddingBottom: 48,
   paddingHorizontal: 24,
-  alignItems: "centers",
+  alignItems: "center",
 });
-const Container = ({ children, ...props }: ViewProps) => {
-  return (
-    <ScrollView
-      style={{
-        backgroundColor: "#fff",
-      }}
-    >
-      <ViewStyled {...props}>{children}</ViewStyled>
-    </ScrollView>
-  );
+const Container = ({
+  children,
+  scroll = true,
+  ...props
+}: ViewProps & { scroll?: boolean }) => {
+  if (scroll)
+    return (
+      <ScrollView
+        style={{
+          backgroundColor: "#fff",
+        }}
+      >
+        <ViewStyled {...props}>{children}</ViewStyled>
+      </ScrollView>
+    );
+  return <ViewStyled {...props}>{children}</ViewStyled>;
 };
 export default Container;
