@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { Button, Input } from "../../atomic";
 import { useRouter } from "expo-router";
+import NewsContext, { NewsContextType } from "../../context/New";
 
 const AddForm = () => {
+  const { setItems } = useContext(NewsContext) as NewsContextType;
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -43,7 +45,25 @@ const AddForm = () => {
           onChangeText: (value) => handleInputChange("description", value),
         }}
       />
-      <Button onPress={() => replace("/(product)/news")}>Đăng tin</Button>
+      <Button
+        onPress={() => {
+          setItems((prev) => [
+            {
+              id: prev[prev.length - 1].id + 1,
+              title: form.title,
+              description: form.description,
+              avatar: require("../../assets/images/avatar.png"),
+              name: "Nguyễn Thị Mon",
+              createAt: "0 phút trước",
+              repliesCount: 0,
+            },
+            ...prev,
+          ]);
+          replace("/(product)/news");
+        }}
+      >
+        Đăng tin
+      </Button>
     </View>
   );
 };
