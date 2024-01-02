@@ -5,6 +5,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import theme from "../theme";
+import ContextProvider from "../context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -46,21 +47,26 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
-        <Stack>
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          <Stack.Screen name="home" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="(product)/[productId]"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="(product)/news"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="(product)/add" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
+      <ContextProvider>
+        <ThemeProvider theme={theme}>
+          <Stack>
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="home" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="(product)/[productId]"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="(product)/news"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="(product)/add"
+              options={{ headerShown: false }}
+            />
+          </Stack>
+        </ThemeProvider>
+      </ContextProvider>
     </SafeAreaProvider>
   );
 }
