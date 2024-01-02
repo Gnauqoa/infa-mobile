@@ -58,6 +58,7 @@ function RootLayoutNav() {
             name="(product)/news"
             options={{ headerShown: false }}
           />
+          <Stack.Screen name="(product)/add" options={{ headerShown: false }} />
         </Stack>
       </ThemeProvider>
     </SafeAreaProvider>
