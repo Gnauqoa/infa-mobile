@@ -9,6 +9,14 @@ const AddForm = () => {
     description: "",
   });
   const { replace } = useRouter();
+
+  const handleInputChange = (name: string, value: string) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
   return (
     <View style={{ paddingTop: 32 }}>
       <Text style={{ fontSize: 20, fontWeight: "700" }}>Tên tin mua</Text>
@@ -17,6 +25,8 @@ const AddForm = () => {
         inputProps={{
           style: { color: "#424242", fontSize: 20, fontWeight: "400" },
           placeholder: "Cái tên nói lên tất cả sẽ giúp ích rất nhiều đấy",
+          value: form.title,
+          onChangeText: (value) => handleInputChange("title", value),
         }}
       />
       <Text style={{ fontSize: 16, fontWeight: "700", marginTop: 32 }}>
@@ -29,6 +39,8 @@ const AddForm = () => {
           placeholder:
             "Một đoạn văn miêu tả đầy đủ sẽ giúp sản phẩm của bạ bán dễ hơn.",
           style: { color: "#424242", fontSize: 20, fontWeight: "400" },
+          value: form.description,
+          onChangeText: (value) => handleInputChange("description", value),
         }}
       />
       <Button onPress={() => replace("/(product)/news")}>Đăng tin</Button>
