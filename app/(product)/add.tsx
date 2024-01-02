@@ -1,10 +1,11 @@
 import { Container } from "../../components";
-import { Headers } from "../../section/addNews";
+import { AddForm, Headers } from "../../section/addNews";
 
 const AddProduct = () => {
   return (
     <Container scroll={true}>
       <Headers />
+      <AddForm />
     </Container>
   );
 };

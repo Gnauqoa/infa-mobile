@@ -1,5 +1,10 @@
 import { ReactNode, useState } from "react";
-import { StyleProp, TouchableOpacity, ViewProps, ViewStyle } from "react-native";
+import {
+  StyleProp,
+  TouchableOpacity,
+  ViewProps,
+  ViewStyle,
+} from "react-native";
 import { TextInput, TextInputProps, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import useToggle from "../../hooks/useToggle";
@@ -23,6 +28,7 @@ const Input = ({
   type?: InputType;
 }) => {
   const containerStyle = containerProps?.style;
+  delete containerProps?.style;
   const { toggle: show, onToggle } = useToggle(true);
 
   return (
@@ -36,6 +42,7 @@ const Input = ({
         flexDirection: "row",
         width: "100%",
         paddingHorizontal: 20,
+        ...containerStyle,
       }}
       {...containerProps}
     >
