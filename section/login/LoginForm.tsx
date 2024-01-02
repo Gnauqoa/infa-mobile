@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { InputType } from "../../atomic/Input";
 import { useState } from "react";
+import Badge from "./Badge";
 
 type FormValue = {
   account: string;
@@ -59,9 +60,7 @@ const LoginForm = () => {
           }
         />
       </View>
-      {/* <View style={{ width: "100%", display: "flex", flexDirection: "column" }}> */}
       <Button>Đăng nhập</Button>
-      {/* </View> */}
     </View>
   );
 };

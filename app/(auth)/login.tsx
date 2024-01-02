@@ -1,7 +1,5 @@
-import { Text } from "@rneui/base";
 import { Container, Logo } from "../../components";
-import { BackButton } from "../../section/login";
-import LoginForm from "../../section/login/LoginForm";
+import { BackButton, Badge, LoginForm, LoginMethod } from "../../section/login";
 
 const Login = () => {
   return (
@@ -9,6 +7,8 @@ const Login = () => {
       <BackButton />
       <Logo />
       <LoginForm />
+      <Badge />
+      <LoginMethod />
     </Container>
   );
 };
