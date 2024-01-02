@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { AppBar } from "../section/home";
+import { AppBar, Carousel, SearchBar } from "../section/home";
 
 const Home = () => {
   return (
@@ -14,6 +14,8 @@ const Home = () => {
       }}
     >
       <AppBar />
+      <SearchBar />
+      <Carousel />
     </View>
   );
 };
